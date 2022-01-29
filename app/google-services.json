@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "756859731415",
+    "project_id": "bookdoctormeet",
+    "storage_bucket": "bookdoctormeet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756859731415:android:612efc9707d1d7bf175f92",
+        "android_client_info": {
+          "package_name": "com.example.bookmydoctormeet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756859731415-r18d8879qlj2mo6du0cl2oq0m715qtqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaQBdSMFOZNJTUSLGfXG1Y2FvAJeBRJb0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756859731415-r18d8879qlj2mo6du0cl2oq0m715qtqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
