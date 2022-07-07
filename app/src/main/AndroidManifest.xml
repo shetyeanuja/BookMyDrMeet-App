@@ -66,7 +66,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="MediSeen"
+            android:label="BookMyDrMeet"
             android:theme="@style/Theme.BookMyDoctorMeet">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

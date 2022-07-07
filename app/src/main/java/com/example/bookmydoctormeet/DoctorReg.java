@@ -84,9 +84,9 @@ public class DoctorReg extends AppCompatActivity {
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         if(!snapshot.exists()){
                                             String x1 = String.valueOf(x);
-                                            String smsMgrVar = "The OTP for phone number: " + doctor_phone + " is: " + x1 + " Regards MediSeen!";
+                                            String smsMgrVar = "Hey "+doctor_name.toUpperCase()+"! Thanks for registering. The OTP for your phone number: " + doctor_phone + " is: " + x1 + " .Regards BookMyDrMeet!";
                                             SmsManager sms = SmsManager.getDefault();
-                                            sms.sendTextMessage(doctor_phone, "9004165540", smsMgrVar, null, null);
+                                            sms.sendTextMessage(doctor_phone, "8169001942", smsMgrVar, null, null);
                                             Toast.makeText(DoctorReg.this, "OTP sent to your phone!", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(DoctorReg.this,OTPDoctor.class);
                                             intent.putExtra("d_name",doctor_name);

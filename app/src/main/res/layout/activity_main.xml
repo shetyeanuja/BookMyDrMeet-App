@@ -54,8 +54,8 @@
 
     <TextView
         android:id="@+id/heading"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="298dp"
+        android:layout_height="70dp"
         android:layout_marginStart="73dp"
         android:layout_marginLeft="73dp"
         android:layout_marginTop="59dp"
@@ -64,8 +64,8 @@
         android:layout_marginBottom="120dp"
         android:background="#F8F7F7"
         android:fontFamily="serif"
-        android:text="MediSeen"
-        android:textSize="34sp"
+        android:text="BookMyDrMeet"
+        android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/doctor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

@@ -79,9 +79,9 @@ public class UserReg extends AppCompatActivity {
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         if(!snapshot.exists()){
                                             String x1 = String.valueOf(x);
-                                            String smsMgrVar = "The OTP for phone number: " + user_phone + " is: " + x1 + " Regards MediSeen!";
+                                            String smsMgrVar = "Hey "+user_name.toUpperCase()+"! Thanks for registering. The OTP for your phone number: " + user_phone + " is: " + x1 + " .Regards BookMyDrMeet!";
                                             SmsManager sms = SmsManager.getDefault();
-                                            sms.sendTextMessage(user_phone, "9004165540", smsMgrVar, null, null);
+                                            sms.sendTextMessage(user_phone, "8169001942", smsMgrVar, null, null);
                                             Toast.makeText(UserReg.this, "OTP sent to your phone!", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(UserReg.this,OTPUser.class);
                                             intent.putExtra("u_name",user_name);

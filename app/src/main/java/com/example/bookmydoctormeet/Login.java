@@ -126,6 +126,7 @@ public class Login extends AppCompatActivity {
                     try
                     {
                         String phone_for_pswd = login_phone.getText().toString();
+                        String phone_for_pswd1 = "+91"+ phone_for_pswd;
                         FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
                         DatabaseReference reference = rootNode.getReference("user");
                         Query is_user = reference.orderByChild("u_phone").equalTo(phone_for_pswd);
@@ -134,9 +135,9 @@ public class Login extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.exists()) {
                                     String pswd = snapshot.child(phone_for_pswd).child("u_pswd").getValue(String.class);
-                                    String smsMgrVar = "The password for phone number: " + phone_for_pswd + " is: " + pswd + " .Regards MediSeen!";
+                                    String smsMgrVar = "The password for your phone number: " + phone_for_pswd + " is: " + pswd + " .Regards BookMyDrMeet!";
                                     SmsManager sms = SmsManager.getDefault();
-                                    sms.sendTextMessage(phone_for_pswd, "9004165540", smsMgrVar, null, null);
+                                    sms.sendTextMessage(phone_for_pswd1, "8169001942", smsMgrVar, null, null);
                                     Toast.makeText(Login.this, "Password sent to the registered phone number", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
@@ -148,9 +149,9 @@ public class Login extends AppCompatActivity {
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                             if (snapshot.exists()) {
                                                 String pswd = snapshot.child(phone_for_pswd).child("d_pswd").getValue(String.class);
-                                                String smsMgrVar = "The password for phone number: " + phone_for_pswd + " is: " + pswd + " Regards MediSeen!";
+                                                String smsMgrVar = "The password for your phone number: " + phone_for_pswd + " is: " + pswd + " .Regards BookMyDrMeet!";
                                                 SmsManager sms = SmsManager.getDefault();
-                                                sms.sendTextMessage(phone_for_pswd, null, smsMgrVar, null, null);
+                                                sms.sendTextMessage(phone_for_pswd1, "8169001942", smsMgrVar, null, null);
                                                 Toast.makeText(Login.this, "Password sent to the registered phone number", Toast.LENGTH_SHORT).show();
                                             } else {
                                                 Toast.makeText(Login.this, "Phone number does not exists!", Toast.LENGTH_LONG).show();
