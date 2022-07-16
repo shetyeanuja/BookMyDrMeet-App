@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,31 +15,28 @@ import java.util.ArrayList;
 public class CustomAdapterForUser extends RecyclerView.Adapter<CustomAdapterForUser.ViewHolder>{
 
     Context context;
-    ArrayList<DoctorProfile> doctor_info;
+    ArrayList<DoctorClinicHospital> doctor_info;
 
-    public CustomAdapterForUser(Context context, ArrayList<DoctorProfile> doctor_info) {
+    public CustomAdapterForUser(Context context, ArrayList<DoctorClinicHospital> doctor_info) {
         this.context = context;
         this.doctor_info = doctor_info;
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void filterList(ArrayList<DoctorProfile> filtered_doctor_info){
+    public void filterList(ArrayList<DoctorClinicHospital> filtered_doctor_info){
         doctor_info = filtered_doctor_info;
         notifyDataSetChanged();
     }
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView doctorName, addressD, contactD, timingsD;
-        ImageButton imageButton;
+        TextView name_of_cliniHosp, name_doc_desig;
+        Button more;
 
         public ViewHolder(@NonNull View view) {
             super(view);
-            doctorName = view.findViewById(R.id.doctorName);
-            addressD = view.findViewById(R.id.contactD);
-            contactD = view.findViewById(R.id.addressD);
-            timingsD = view.findViewById(R.id.timingsD);
-            imageButton = view.findViewById(R.id.imageButton);
+            name_of_cliniHosp = view.findViewById(R.id.name_of_cliniHosp);
+            name_doc_desig = view.findViewById(R.id.name_doc_desig);
+            more = view.findViewById(R.id.more);
         }
 
     }
@@ -51,26 +48,22 @@ public class CustomAdapterForUser extends RecyclerView.Adapter<CustomAdapterForU
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        DoctorProfile dp = doctor_info.get(position);
-        viewHolder.doctorName.setText(dp.getD_name());
-        viewHolder.addressD.setText("Address- "+dp.getAddress());
-        viewHolder.contactD.setText("Contact- "+dp.getContact());
-        viewHolder.timingsD.setText("Timings- "+dp.getTimings());
+        DoctorClinicHospital dp = doctor_info.get(position);
+        viewHolder.name_of_cliniHosp.setText(dp.getName_clinic_hospital().toUpperCase());
+        viewHolder.name_doc_desig.setText(dp.getD_name().toUpperCase()+" ("+dp.getDesignation().toUpperCase()+")");
 
-        viewHolder.imageButton.setOnClickListener(new View.OnClickListener() {
+        viewHolder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,BookAppointmentForUser.class);
-                String dname = viewHolder.doctorName.getText().toString();
-                String dcontact = viewHolder.contactD.getText().toString();
-                intent.putExtra("DN",dname);
-                intent.putExtra("DP",dcontact);
+                Intent intent = new Intent(context,UserClinicHospital.class);
+                String doctor_telephone = dp.getTelephone();
+                intent.putExtra("DT",doctor_telephone);
                 context.startActivity(intent);
             }
         });
-
 
 
     }

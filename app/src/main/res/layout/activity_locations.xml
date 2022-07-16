@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Locations">
+
+    <Button
+        android:id="@+id/save_next"
+        android:layout_width="169dp"
+        android:layout_height="50dp"
+        android:text="save and next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/website" />
+
+    <EditText
+        android:id="@+id/name_clinic_hospital"
+        android:layout_width="297dp"
+        android:layout_height="67dp"
+        android:background="#E8E6ED"
+        android:ems="10"
+        android:hint="Name of Clinic/Hospital"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/telephone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_name" />
+
+    <EditText
+        android:id="@+id/telephone"
+        android:layout_width="297dp"
+        android:layout_height="67dp"
+        android:background="#E8E6ED"
+        android:ems="10"
+        android:hint="Telephone no./Mobile no."
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/whatsapp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_clinic_hospital" />
+
+    <EditText
+        android:id="@+id/whatsapp"
+        android:layout_width="297dp"
+        android:layout_height="67dp"
+        android:background="#E8E6ED"
+        android:ems="10"
+        android:hint="WhatsApp no."
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/address_clinic_hospital"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/telephone" />
+
+    <EditText
+        android:id="@+id/timings_clinic_hospital"
+        android:layout_width="299dp"
+        android:layout_height="67dp"
+        android:background="#E8E6ED"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Days with timings you are available"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/website"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_clinic_hospital" />
+
+    <EditText
+        android:id="@+id/website"
+        android:layout_width="297dp"
+        android:layout_height="67dp"
+        android:background="#E8E6ED"
+        android:ems="10"
+        android:hint="Website if any"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/save_next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timings_clinic_hospital" />
+
+    <TextView
+        android:id="@+id/add_name"
+        android:layout_width="233dp"
+        android:layout_height="44dp"
+        android:text="Add Clinic/Hospital"
+        android:textColor="#512DA8"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/name_clinic_hospital"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back_doctor_home" />
+
+    <Button
+        android:id="@+id/back_doctor_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        app:backgroundTint="#00796B"
+        app:layout_constraintBottom_toTopOf="@+id/add_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.551" />
+
+    <EditText
+        android:id="@+id/address_clinic_hospital"
+        android:layout_width="297dp"
+        android:layout_height="67dp"
+        android:background="#E8E6ED"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Address"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/timings_clinic_hospital"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/whatsapp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

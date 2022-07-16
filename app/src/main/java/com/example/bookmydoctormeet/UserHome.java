@@ -6,10 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,11 +20,11 @@ import java.util.ArrayList;
 public class UserHome extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<DoctorProfile> doctor_info;
+    ArrayList<DoctorClinicHospital> doctor_info;
     CustomAdapterForUser customAdapterForUser;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-    TextView userName;
+    TextView just_text;
     SearchView searchView;
 
     @Override
@@ -35,22 +32,19 @@ public class UserHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        userName = findViewById(R.id.userName);
+        just_text = findViewById(R.id.just_text);
+        just_text.setSelected(true);
         searchView = findViewById(R.id.searchView);
 
         Intent intent = getIntent();
         String NAME = intent.getStringExtra("NAME_OF_USER");
         String PHONE = intent.getStringExtra("PHONE_OF_USER");
 
-        Intent intent1 = new Intent(UserHome.this, BookAppointmentForUser.class);
-        intent1.putExtra("UN",NAME);
-        intent1.putExtra("UP",PHONE);
-
-        userName.setText("USER: "+NAME);
+        just_text.setText("Hello there..Now you can connect with the Specialist of your choice directly!".toUpperCase());
 
         recyclerView = findViewById(R.id.recyclerView);
         rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("doctor_profile");
+        reference = rootNode.getReference("clinic_hospital");
 
         recyclerView.setLayoutManager(new LinearLayoutManager(UserHome.this));
 
@@ -64,7 +58,7 @@ public class UserHome extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    DoctorProfile dp = dataSnapshot.getValue(DoctorProfile.class);
+                    DoctorClinicHospital dp = dataSnapshot.getValue(DoctorClinicHospital.class);
                     doctor_info.add(dp);
                 }
                 customAdapterForUser.notifyDataSetChanged();
@@ -76,7 +70,6 @@ public class UserHome extends AppCompatActivity {
 
             }
         });
-
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -93,14 +86,24 @@ public class UserHome extends AppCompatActivity {
 
     }
     public void filter(String s){
-        ArrayList<DoctorProfile> filtered_doctor_info = new ArrayList<>();
-        for (DoctorProfile item : doctor_info) {
-            if (item.getAddress().toLowerCase().contains(s.toLowerCase())) {
+        ArrayList<DoctorClinicHospital> filtered_doctor_info = new ArrayList<>();
+        for (DoctorClinicHospital item : doctor_info) {
+            if (item.getDesignation().toLowerCase().contains(s.toLowerCase())) {
                 filtered_doctor_info.add(item);
             }
+            else if (item.getName_clinic_hospital().toLowerCase().contains(s.toLowerCase())) {
+                filtered_doctor_info.add(item);
+            }
+            else if (item.getD_name().toLowerCase().contains(s.toLowerCase())) {
+                filtered_doctor_info.add(item);
+            }
+            else if (item.getAddress_clinic_hospital().toLowerCase().contains(s.toLowerCase())) {
+                filtered_doctor_info.add(item);
+            }
+
         }
         if (filtered_doctor_info.isEmpty()) {
-            Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry no doctors available.", Toast.LENGTH_SHORT).show();
         }
         else {
             customAdapterForUser.filterList(filtered_doctor_info);

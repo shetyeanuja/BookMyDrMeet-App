@@ -21,15 +21,14 @@ public class BookAppointmentForUser extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton male, female, others, radioButton;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment_for_user);
 
         Intent intent = getIntent();
-        String doc_name = intent.getStringExtra("DN");
-        String doc_phone = intent.getStringExtra("DP");
+        String doctorname = intent.getStringExtra("DOCTORNAME");
+        String whatsapp = intent.getStringExtra("WHATSAPP");
 
         send = findViewById(R.id.send);
         patient_age = findViewById(R.id.patient_age);
@@ -62,11 +61,11 @@ public class BookAppointmentForUser extends AppCompatActivity {
                                     radioButton = (RadioButton) findViewById(selectedId);
                                     String p_gender = radioButton.getText().toString();
 
-                                    String msg = "Hello "+doc_name+" Patient Name: "+p_name+" , Patient Age: "+p_age+" , Patient Gender: "+p_gender+ " ," +
-                                            " I am requesting for an appointment from MediSeen!";
+                                    String msg = "Hello "+doctorname.toUpperCase()+" Patient Name: "+p_name.toUpperCase()+", Patient Age: "+p_age+" , Patient Gender: "+p_gender.toUpperCase()+ "," +
+                                            " I am requesting for an appointment from BookMyDrMeet!";
 
                                     try {
-                                        String mobile = "91"+doc_phone;
+                                        String mobile = "91"+whatsapp;
                                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=" + mobile + "&text=" + msg)));
                                     }catch (Exception e){
                                         Toast.makeText(BookAppointmentForUser.this,"Whatsapp not installed!",Toast.LENGTH_SHORT).show();
@@ -80,23 +79,13 @@ public class BookAppointmentForUser extends AppCompatActivity {
                         }
                     };
                     AlertDialog.Builder builder = new AlertDialog.Builder(BookAppointmentForUser.this);
-                    builder.setMessage("Are you sure you want to ask for an appointment?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Are you sure you want to send WhatsApp for an appointment?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
-
-
-
-
-
-
-
 
                 }
 
-
             }
         });
-
-
 
     }
 }

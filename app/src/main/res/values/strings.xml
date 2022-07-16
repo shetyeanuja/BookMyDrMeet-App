@@ -16,4 +16,5 @@
     <string name="contact">Contact</string>
     <string name="address_of_clinic_or_hospital">Address of clinic or hospital</string>
     <string name="update">update</string>
+    <string name="title_activity_locations">Locations</string>
 </resources>

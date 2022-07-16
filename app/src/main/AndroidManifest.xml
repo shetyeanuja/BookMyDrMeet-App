@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -16,21 +17,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMyDoctorMeet">
         <activity
+            android:name=".UserClinicHospital"
+            android:exported="true"
+            android:label="Ask for an appointment"
+            android:parentActivityName=".UserHome"
+            android:theme="@style/Theme.BookMyDoctorMeet" />
+        <activity
+            android:name=".Locations"
+            android:exported="true"
+            android:label="Add your Clinic or Hospital"
+            android:theme="@style/Theme.BookMyDoctorMeet" />
+        <activity
             android:name=".OTPDoctor"
             android:exported="true"
-            android:label="Verification"
+            android:label="Phone Verification"
             android:parentActivityName=".DoctorReg"
             android:theme="@style/Theme.BookMyDoctorMeet" />
         <activity
             android:name=".OTPUser"
             android:exported="true"
-            android:label="Verification"
+            android:label="Phone Verification"
             android:parentActivityName=".UserReg"
             android:theme="@style/Theme.BookMyDoctorMeet" />
         <activity
             android:name=".BookAppointmentForUser"
             android:exported="true"
-            android:label="Ask for an appointment"
+            android:label="Send a message over WhatsApp"
             android:parentActivityName=".UserHome"
             android:theme="@style/Theme.BookMyDoctorMeet" />
         <activity
@@ -66,7 +78,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="BookMyDrMeet"
+            android:label="BookMyDrMeet Home"
             android:theme="@style/Theme.BookMyDoctorMeet">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

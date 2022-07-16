@@ -4,75 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#92BABF">
+    android:background="#9398B8">
 
     <TextView
-        android:id="@+id/doctorName"
-        android:layout_width="342dp"
-        android:layout_height="48dp"
+        android:id="@+id/name_of_cliniHosp"
+        android:layout_width="411dp"
+        android:layout_height="40dp"
+        android:background="#9398B8"
         android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        android:textColor="#363739"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/name_doc_desig"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/name_doc_desig"
+        android:layout_width="264dp"
+        android:layout_height="36dp"
+        android:background="#9398B8"
+        android:text="Doctor"
+        android:textColor="#F8F7F7"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toStartOf="@+id/more"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_of_cliniHosp"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/more"
+        android:layout_width="149dp"
+        android:layout_height="38dp"
+        android:text="more about doctor -->"
+        android:textSize="8.5sp"
+        app:backgroundTint="#85758C"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/name_doc_desig"
+        app:layout_constraintTop_toBottomOf="@+id/name_of_cliniHosp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <View
-        android:id="@+id/divider9"
-        android:layout_width="match_parent"
-        android:layout_height="7dp"
-        android:background="@color/black"
+        android:id="@+id/divider"
+        android:layout_width="412dp"
+        android:layout_height="9dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="409dp"
-        android:layout_height="103dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/divider9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton">
-
-        <TextView
-            android:id="@+id/contactD"
-            android:layout_width="99dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/addressD"
-            android:layout_width="111dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/timingsD"
-            android:layout_width="108dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="TextView" />
-    </LinearLayout>
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="#45807A"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/doctorName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/name_doc_desig" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,8 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 public class DoctorHome extends AppCompatActivity {
 
     TextView name_of_doctor;
-    Button update;
-    EditText address, contact, timings;
+    Button done,practise;
+    EditText designation,specialization,yrsofexp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +31,13 @@ public class DoctorHome extends AppCompatActivity {
         Intent intent = getIntent();
         String NAME = intent.getStringExtra("NAME_OF_DOCTOR");
         String PHONE = intent.getStringExtra("PHONE_OF_DOCTOR");
-        name_of_doctor.setText(NAME);
+        name_of_doctor.setText(NAME.toUpperCase());
 
-        update = findViewById(R.id.update);
-        address = findViewById(R.id.address);
-        contact = findViewById(R.id.contact);
-        timings = findViewById(R.id.timings);
+        done = findViewById(R.id.done);
+        practise = findViewById(R.id.practise);
+        designation = findViewById(R.id.designation);
+        specialization = findViewById(R.id.specialization);
+        yrsofexp = findViewById(R.id.yrsofexp);
 
         FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
         DatabaseReference reference = rootNode.getReference("doctor_profile");
@@ -45,13 +46,13 @@ public class DoctorHome extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    String address_of_doctor = snapshot.child(PHONE).child("address").getValue(String.class);
-                    String contact_of_doctor = snapshot.child(PHONE).child("contact").getValue(String.class);
-                    String timings_of_doctor = snapshot.child(PHONE).child("timings").getValue(String.class);
+                    String designation_of_doctor = snapshot.child(PHONE).child("designation").getValue(String.class);
+                    String specialization_of_doctor = snapshot.child(PHONE).child("specialization").getValue(String.class);
+                    String yrsofexp_of_doctor = snapshot.child(PHONE).child("yrsofexp").getValue(String.class);
 
-                    address.setText(address_of_doctor);
-                    contact.setText(contact_of_doctor);
-                    timings.setText(timings_of_doctor);
+                    designation.setText(designation_of_doctor);
+                    specialization.setText(specialization_of_doctor);
+                    yrsofexp.setText(yrsofexp_of_doctor);
                 }
             }
 
@@ -62,25 +63,33 @@ public class DoctorHome extends AppCompatActivity {
         });
 
 
-        update.setOnClickListener(new View.OnClickListener() {
+        done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String addr = address.getText().toString();
-                String cont = contact.getText().toString();
-                String timi = timings.getText().toString();
+                String designation_of_doctor = designation.getText().toString();
+                String specialization_of_doctor = specialization.getText().toString();
+                String yrsofexp_of_doctor = yrsofexp.getText().toString();
 
-                if(cont.length()!=10){
-                    Toast.makeText(DoctorHome.this, "Invalid phone number!", Toast.LENGTH_SHORT).show();
-                }
+                FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+                DatabaseReference reference = rootNode.getReference("doctor_profile");
+                DoctorProfile df = new DoctorProfile(NAME, PHONE, designation_of_doctor, specialization_of_doctor, yrsofexp_of_doctor);
+                reference.child(PHONE).setValue(df);
+                Toast.makeText(DoctorHome.this, "Profile updated!", Toast.LENGTH_SHORT).show();
 
-                else {
-                    FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
-                    DatabaseReference reference = rootNode.getReference("doctor_profile");
-                    DoctorProfile df = new DoctorProfile(NAME, PHONE, addr, cont, timi);
-                    reference.child(PHONE).setValue(df);
-                    Toast.makeText(DoctorHome.this, "Profile updated!", Toast.LENGTH_SHORT).show();
-                }
 
+            }
+        });
+
+        practise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DoctorHome.this, Locations.class);
+                intent.putExtra("NAME_OF_DOCTOR", NAME);
+                intent.putExtra("PHONE_OF_DOCTOR", PHONE);
+                intent.putExtra("DESIGNATION", designation.getText().toString());
+                intent.putExtra("SPECIALIZATION", specialization.getText().toString());
+                intent.putExtra("YEARS", yrsofexp.getText().toString());
+                startActivity(intent);
             }
         });
 

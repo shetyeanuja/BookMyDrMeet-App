@@ -4,21 +4,9 @@ public class DoctorProfile {
 
     private String d_name;
     private String d_phone;
-    private String address;
-    private String contact;
-    private String timings;
-
-    public DoctorProfile(String d_name, String d_phone, String address, String contact, String timings) {
-        this.d_name = d_name;
-        this.d_phone = d_phone;
-        this.address = address;
-        this.contact = contact;
-        this.timings = timings;
-    }
-
-    public DoctorProfile(){
-
-    }
+    private String designation;
+    private String specialization;
+    private String yrsofexp;
 
     public String getD_name() {
         return d_name;
@@ -36,27 +24,41 @@ public class DoctorProfile {
         this.d_phone = d_phone;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDesignation() {
+        return designation;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 
-    public String getContact() {
-        return contact;
+    public String getSpecialization() {
+        return specialization;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
-    public String getTimings() {
-        return timings;
+    public String getYrsofexp() {
+        return yrsofexp;
     }
 
-    public void setTimings(String timings) {
-        this.timings = timings;
+    public void setYrsofexp(String yrsofexp) {
+        this.yrsofexp = yrsofexp;
     }
+
+    public DoctorProfile(String d_name, String d_phone, String designation, String specialization, String yrsofexp) {
+        this.d_name = d_name;
+        this.d_phone = d_phone;
+        this.designation = designation;
+        this.specialization = specialization;
+        this.yrsofexp = yrsofexp;
+    }
+
+    public DoctorProfile(){
+
+    }
+
+
 }

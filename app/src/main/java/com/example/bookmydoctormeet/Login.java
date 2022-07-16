@@ -98,7 +98,6 @@ public class Login extends AppCompatActivity {
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
-
                                     }
                                 });
 
@@ -107,7 +106,6 @@ public class Login extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                     });
                     
@@ -153,7 +151,8 @@ public class Login extends AppCompatActivity {
                                                 SmsManager sms = SmsManager.getDefault();
                                                 sms.sendTextMessage(phone_for_pswd1, "8169001942", smsMgrVar, null, null);
                                                 Toast.makeText(Login.this, "Password sent to the registered phone number", Toast.LENGTH_SHORT).show();
-                                            } else {
+                                            }
+                                            else {
                                                 Toast.makeText(Login.this, "Phone number does not exists!", Toast.LENGTH_LONG).show();
                                             }
                                         }
@@ -167,22 +166,17 @@ public class Login extends AppCompatActivity {
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
                             }
-
 
                         });
 
-
                     }
-
 
                     catch(Exception ErrVar)
                     {
                         Toast.makeText(Login.this,"Some error occurred", Toast.LENGTH_LONG).show();
                         ErrVar.printStackTrace();
                     }
-
 
                 }
                 else {

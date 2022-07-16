@@ -8,81 +8,130 @@
 
     <TextView
         android:id="@+id/name_of_doctor"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="411dp"
+        android:layout_height="49dp"
+        android:background="#00796B"
+        android:fadingEdge="horizontal"
         android:fontFamily="monospace"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/address"
+        android:textColor="#F6F5F5"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/address"
-        android:layout_width="325dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="38dp"
+        android:id="@+id/designation"
+        android:layout_width="280dp"
+        android:layout_height="58dp"
+        android:background="#E8E6ED"
         android:ems="10"
-        android:hint="Address of clinic or hospital"
+        android:hint="Add Designation"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/contact"
+        app:layout_constraintBottom_toTopOf="@+id/specialization"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <EditText
+        android:id="@+id/specialization"
+        android:layout_width="280dp"
+        android:layout_height="58dp"
+        android:background="#E8E6ED"
+        android:ems="10"
+        android:hint="Add Specialization"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/yrsofexp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/designation" />
+
+    <EditText
+        android:id="@+id/yrsofexp"
+        android:layout_width="280dp"
+        android:layout_height="58dp"
+        android:background="#E8E6ED"
+        android:ems="10"
+        android:hint="Add Years of Experience"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/specialization" />
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="131dp"
+        android:layout_height="59dp"
+        android:text="done"
+        app:layout_constraintBottom_toTopOf="@+id/practise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yrsofexp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="157dp"
+        android:layout_height="49dp"
+        android:text="MY PROFILE"
+        android:textColor="#512DA8"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/designation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name_of_doctor" />
 
-    <EditText
-        android:id="@+id/timings"
-        android:layout_width="335dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="56dp"
-        android:ems="10"
-        android:hint="Timings"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/update"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact" />
-
-    <EditText
-        android:id="@+id/contact"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="35dp"
-        android:ems="10"
-        android:hint="WhatsApp contact"
-        android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/timings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
-
     <Button
-        android:id="@+id/update"
-        android:layout_width="103dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="96dp"
-        android:text="Add"
+        android:id="@+id/practise"
+        android:layout_width="236dp"
+        android:layout_height="58dp"
+        android:text="Add clinic/hospital"
+        app:backgroundTint="#73918E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timings" />
+        app:layout_constraintTop_toBottomOf="@+id/done" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="87dp"
+        android:layout_height="25dp"
+        android:text="Designation :"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintEnd_toStartOf="@+id/designation"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_of_doctor"
+        app:layout_constraintVertical_bias="0.661" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:text="Specialization :"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toStartOf="@+id/specialization"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="76dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="8dp"
+        android:text="Years of Experience :"
+        app:layout_constraintEnd_toStartOf="@+id/yrsofexp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/yrsofexp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

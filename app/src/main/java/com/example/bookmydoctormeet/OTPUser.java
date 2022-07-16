@@ -22,9 +22,9 @@ public class OTPUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
-        otp_user = findViewById(R.id.otp_user);
+        otp_user = findViewById(R.id.otp_both);
         checkBox = findViewById(R.id.checkBox);
-        verify_user = findViewById(R.id.verify_user);
+        verify_user = findViewById(R.id.verify_both);
 
         verify_user.setOnClickListener(new View.OnClickListener() {
             @Override

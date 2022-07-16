@@ -67,7 +67,6 @@ public class UserReg extends AppCompatActivity {
                     else if(!set_p.equals(confirm_p)){
                         Toast.makeText(UserReg.this, "Confirm Password does not match Set Password!", Toast.LENGTH_SHORT).show();
                     }
-
                     else {
                         if (ActivityCompat.checkSelfPermission(UserReg.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                             try {
@@ -97,7 +96,6 @@ public class UserReg extends AppCompatActivity {
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
-
                                     }
                                 });
                             }
@@ -112,7 +110,6 @@ public class UserReg extends AppCompatActivity {
                                     requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 10);
                                 }
                             }
-
                     }
 
                 }

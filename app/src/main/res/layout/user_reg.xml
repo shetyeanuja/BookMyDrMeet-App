@@ -8,10 +8,12 @@
 
     <EditText
         android:id="@+id/u_name"
-        android:layout_width="280dp"
-        android:layout_height="57dp"
+        android:layout_width="285dp"
+        android:layout_height="58dp"
         android:layout_marginTop="132dp"
+        android:background="#E8E6ED"
         android:ems="10"
+        android:hapticFeedbackEnabled="false"
         android:hint="Enter your Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,8 +23,9 @@
 
     <EditText
         android:id="@+id/u_set_pswd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="285dp"
+        android:layout_height="58dp"
+        android:background="#E8E6ED"
         android:ems="10"
         android:hint="Set Password"
         android:inputType="textPassword"
@@ -35,8 +38,9 @@
 
     <EditText
         android:id="@+id/u_confirm_pswd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="285dp"
+        android:layout_height="58dp"
+        android:background="#E8E6ED"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
@@ -60,14 +64,28 @@
 
     <EditText
         android:id="@+id/u_phone"
-        android:layout_width="279dp"
-        android:layout_height="60dp"
+        android:layout_width="285dp"
+        android:layout_height="58dp"
+        android:background="#E8E6ED"
         android:ems="10"
         android:hint="Enter your phone no."
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/u_set_pswd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/u_name" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="241dp"
+        android:layout_height="53dp"
+        android:text="USER REGISTRATION"
+        android:textColor="#512DA8"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/u_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.607" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

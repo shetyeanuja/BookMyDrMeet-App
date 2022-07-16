@@ -72,7 +72,6 @@ public class DoctorReg extends AppCompatActivity {
                     else if(!set_p.equals(confirm_p)){
                         Toast.makeText(DoctorReg.this, "Confirm Password does not match Set Password!", Toast.LENGTH_SHORT).show();
                     }
-
                     else {
                         if (ActivityCompat.checkSelfPermission(DoctorReg.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
                             try {
@@ -103,7 +102,6 @@ public class DoctorReg extends AppCompatActivity {
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
-
                                     }
                                 });
                             }

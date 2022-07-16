@@ -14,17 +14,17 @@ import com.google.firebase.database.FirebaseDatabase;
 public class OTPDoctor extends AppCompatActivity {
 
     EditText otp_doctor;
-    CheckBox checkBox2;
+    CheckBox checkBox;
     Button verify_doctor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_otpdoctor);
+        setContentView(R.layout.activity_otp);
 
-        otp_doctor = findViewById(R.id.otp_doctor);
-        checkBox2 = findViewById(R.id.checkBox2);
-        verify_doctor = findViewById(R.id.verify_doctor);
+        otp_doctor = findViewById(R.id.otp_both);
+        checkBox = findViewById(R.id.checkBox);
+        verify_doctor = findViewById(R.id.verify_both);
 
         verify_doctor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,16 +37,12 @@ public class OTPDoctor extends AppCompatActivity {
                 String d_otp = intent.getStringExtra("d_otp");
 
                 if(d_otp.equals(otp_doctor.getText().toString())) {
-                    if(checkBox2.isChecked()) {
+                    if(checkBox.isChecked()) {
                         Toast.makeText(OTPDoctor.this, "Phone number verified!", Toast.LENGTH_SHORT).show();
                         FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
                         DatabaseReference reference = rootNode.getReference("doctor");
                         Doctor d = new Doctor(d_name, d_phone, d_pswd, d_regno);
                         reference.child(d_phone).setValue(d);
-                        FirebaseDatabase rootNode1 = FirebaseDatabase.getInstance();
-                        DatabaseReference reference1 = rootNode1.getReference("doctor_profile");
-                        DoctorProfile dp = new DoctorProfile(d_name,d_phone,"","","");
-                        reference1.child(d_phone).setValue(dp);
                         Toast.makeText(OTPDoctor.this, "Doctor registered successfully!", Toast.LENGTH_SHORT).show();
                         Intent intent1= new Intent(OTPDoctor.this, Login.class);
                         startActivity(intent1);
